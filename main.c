@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  * main - main function
+ * by desmond and aishat
  * @argc: argument count
  * @argv: argument vector
  * Return: return  0 on success

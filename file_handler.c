@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
  * open_file - function opens a file and read content by lines
+ * by desmond and aishat
  * @file_name: file to be opend
  * @stack_head: pointer to address fo last item in stack
  * Return: return 0 on success

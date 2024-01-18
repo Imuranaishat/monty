@@ -2,6 +2,7 @@
 #include "strings.h"
 /**
  * split_line - function tokenizes string input
+ * by desmond and aishat
  * @string: string input
  * Return: pointer to array of strings
  */
