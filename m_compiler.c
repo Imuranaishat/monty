@@ -12,17 +12,19 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 {
 	int i = 0;
 	instruction_t opcodes[] = {
-		{"push", push},
-		{"pall", pall}};
+		{"push", push}, {"pop", pop},
+		{"pall", pall},
+		{"pint", pint},
+		{"nop", nop}};
 
 	if (cmds[1])
 		data_element = atoi(cmds[1]);
 
-	while (i < 2)
+	while (i < 8)
 	{
 		if (str_compare(cmds[0], opcodes[i].opcode) == -1)
 		{
-			if ((i + 1) > 2)
+			if ((i + 1) > 8)
 			{
 				dprintf(2, "L%d: unknown instruction %s\n", line_num, cmds[0]);
 				exit(EXIT_FAILURE);

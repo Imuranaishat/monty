@@ -56,3 +56,44 @@ void pall(stack_t **topp, unsigned int cmd_line)
 	}
 }
 
+/**
+ * pint - function prints data_element at the top of stack
+ * @topp: pointer to address of firsr node
+ * @cmd_line: command line
+ * Return: nothing
+ */
+void pint(stack_t **topp, unsigned int cmd_line)
+{
+	stack_t *temp = (*topp);
+
+	if ((*topp) == NULL)
+	{
+		dprintf(2, "L%d: cant't pint, stack empty\n", cmd_line);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", temp->n);
+}
+
+/**
+ * pop - function removes tha last node from stack
+ * @topp: tointer to address of topmost element in stack
+ * @cmd_line: commands line
+ */
+void pop(stack_t **topp, unsigned int cmd_line)
+{
+	stack_t *temp;
+
+	if ((*topp) == NULL)
+	{
+		dprintf(2, "L%d: cant pop an empty stack\n", cmd_line);
+		exit(EXIT_FAILURE);
+	}
+	temp = (*topp)->prev;
+	(*topp) = temp;
+	free(temp);
+}
+void nop(stack_t **topp, unsigned int cmd_line)
+{
+	if ((*topp) || cmd_line)
+		exit(EXIT_SUCCESS);
+}
