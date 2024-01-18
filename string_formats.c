@@ -1,6 +1,7 @@
 #include "strings.h"
 /**
  * get_len - function checks lenght of string
+ * by desmond and aishat
  * @str: string input
  * Return: lenght of string
  */

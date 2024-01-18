@@ -3,6 +3,7 @@
 #include "strings.h"
 /**
  * process_cmd - function processes command
+ * by deasmond and aishat
  * @cmds: command arguments
  * @top: pointer to address of recent node on stack
  * @line_num: command line nuumber

@@ -3,6 +3,7 @@
 
 /**
  * push - function inserts data element to strack
+ * by desmond and aishat
  * @topp: ponter to address of last item on stack
  * @cmd_line: command line
  * Return: nothing (void function)
