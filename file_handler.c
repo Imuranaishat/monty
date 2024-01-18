@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
  * open_file - function opens a file and read content by lines
- * @file_nmae: file to be opend
+ * @file_name: file to be opend
  * @stack_head: pointer to address fo last item in stack
- * Retutn: return 0 on success
+ * Return: return 0 on success
  */
 int open_file(char *file_name, stack_t **stack_head)
 {

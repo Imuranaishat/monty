@@ -9,6 +9,7 @@
 #include <fcntl.h>
 #include <string.h>
 
+
 extern int data_element;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
