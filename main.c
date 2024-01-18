@@ -1,0 +1,22 @@
+#include "monty.h"
+/**
+ * main - main function
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: return  0 on success
+ */
+int main(int argc, char **argv)
+{
+	stack_t *stack = NULL;
+
+	if (argc < 2 || argc > 2)
+	{
+		dprintf(2, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		open_file(argv[1], &stack);
+	}
+	return (0);
+}
