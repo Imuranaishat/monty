@@ -13,10 +13,10 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 {
 	int i = 0;
 	instruction_t opcodes[] = {
-		{"push", push}, {"pop", pop},
-		{"pall", pall},
-		{"pint", pint},
-		{"nop", nop}};
+		{"push", push}, {"pop", pop}, {"div", divi},
+		{"pall", pall}, {"swap", swap}, {"mul", mull},
+		{"pint", pint}, {"add", add}, {"mod", mode},
+		{"nop", nop}, {"sub", sub}};
 
 	if (cmds[1])
 		data_element = atoi(cmds[1]);

@@ -89,12 +89,14 @@ void pop(stack_t **topp, unsigned int cmd_line)
 		dprintf(2, "L%d: cant pop an empty stack\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*topp)->prev;
-	(*topp) = temp;
+	temp = (*topp);
+	(*topp) = temp->next;;
 	free(temp);
 }
 void nop(stack_t **topp, unsigned int cmd_line)
 {
-	if ((*topp) || cmd_line)
-		exit(EXIT_SUCCESS);
+	while ((*topp) || cmd_line)
+	{
+		break;
+	}	
 }
