@@ -27,5 +27,6 @@ int open_file(char *file_name, stack_t **stack_head)
 		cmd = split_line(line);
 		process_cmd(cmd, stack_head, line_count);
 	}
+	fclose(fd);
 	exit(EXIT_SUCCESS);
 }
