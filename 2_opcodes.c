@@ -1,6 +1,6 @@
 #include "opcodes.h"
 /**
- * mul - function multiplies the first 2 elements on stack
+ * mull - function multiplies the first 2 elements on stack
  * @topp: pointer to address of first item in stack
  * @cmd_line: commands line
  * Return: return nothing (void)
@@ -24,7 +24,7 @@ void mull(stack_t **topp, unsigned int cmd_line)
 }
 
 /**
- * mul - function multiplies the first 2 elements on stack
+ * mode - function multiplies the first 2 elements on stack
  * @topp: pointer to address of first item in stack
  * @cmd_line: commands line
  * Return: return nothing (void)
@@ -47,7 +47,7 @@ void mode(stack_t **topp, unsigned int cmd_line)
 
 	i = ((*topp))->n;
 	temp = (*topp)->next;
-	temp->n = temp->n % i;
+	temp->n = temp->n * i;
 	free((*topp));
 	(*topp) = temp;
 }

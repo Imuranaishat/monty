@@ -25,8 +25,13 @@ int open_file(char *file_name, stack_t **stack_head)
 	{
 		line_count++;
 		cmd = split_line(line);
-		process_cmd(cmd, stack_head, line_count);
+		if (process_cmd(cmd, stack_head, line_count) == -1)
+		{
+			free(line);
+			exit(EXIT_FAILURE);
+		}
 	}
 	fclose(fd);
+	free(line);
 	exit(EXIT_SUCCESS);
 }

@@ -45,6 +45,11 @@ void pall(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp = (*topp);
 
+	if (data_element != -1235321)
+	{
+		dprintf(2, "L%d: require no args \n", cmd_line);
+		exit(EXIT_FAILURE);
+	}
 	if (sizeof(data_element) != 4)
 	{
 		dprintf(2, "L%d: usage: pall\n", cmd_line);

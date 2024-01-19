@@ -36,5 +36,6 @@ char **split_line(char *string)
 		token = strtok(NULL, " $\n\t");
 		i++;
 	}
+	free(dup);
 	return (ptr);
 }

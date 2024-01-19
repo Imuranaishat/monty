@@ -8,4 +8,4 @@ int get_len(char *str);
 char *str_dup(char *str);
 int str_compare(char *str1, char *str2);
 
-#endif 
+#endif

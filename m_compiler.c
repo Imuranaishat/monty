@@ -1,6 +1,8 @@
 #include "monty.h"
 #include "opcodes.h"
 #include "strings.h"
+
+char *is_int(char *str);
 /**
  * process_cmd - function processes command
  * by deasmond and aishat
@@ -11,32 +13,60 @@
  */
 int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 {
-	int i = 0;
+	int len, i = 0;
 	instruction_t opcodes[] = {
 		{"push", push}, {"pop", pop}, {"div", divi},
 		{"pall", pall}, {"swap", swap}, {"mul", mull},
 		{"pint", pint}, {"add", add}, {"mod", mode},
 		{"nop", nop}, {"sub", sub}};
 
-	if (cmds[1])
-		data_element = atoi(cmds[1]);
-
-	while (i < 8)
+	if (!cmds[1])
+		data_element = -1235321;
+	else
 	{
-		if (str_compare(cmds[0], opcodes[i].opcode) == -1)
-		{
-			if ((i + 1) > 8)
-			{
-				dprintf(2, "L%d: unknown instruction %s\n", line_num, cmds[0]);
-				exit(EXIT_FAILURE);
-			}
-			i++;
-		}
+		if (str_compare(is_int(cmds[1]), "no") == -1)
+			data_element = atoi(cmds[1]);
 		else
 		{
-			opcodes[i].f(top, line_num);
-			break;
+			dprintf(2, "L%d:usage: push integer\n", line_num);
+			return (-1);
 		}
 	}
-	return (0);
+
+	len = (sizeof(opcodes) / sizeof(opcodes[0]));
+	while (i < len)
+	{
+		if (str_compare(cmds[0], opcodes[i].opcode) == 0)
+		{
+			opcodes[i].f(top, line_num);
+			return (0);
+		}
+		i++;
+
+	}
+	dprintf(2, "L%d: unknown instruction %s\n", line_num, cmds[0]);
+	return (-1);
+}
+
+/**
+ * is_int - function checks if string is avalid integer
+ * @str: sting input
+ * Return : return string to confirm
+ */
+char *is_int(char *str)
+{
+	int num, i = 0;
+
+	while (str[i])
+	{
+		num = str[i] - 0;
+		if (num >= 48 && num <= 57)
+		{
+			i++;
+			continue;
+		}
+		else
+			return ("no");
+	}
+	return ("yes");
 }
