@@ -53,7 +53,7 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 /**
  * is_int - function checks if string is avalid integer
  * @str: sting input
- * Return : return string to confirm
+ * Return: return string to confirm
  */
 char *is_int(char *str)
 {

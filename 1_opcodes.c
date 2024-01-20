@@ -21,7 +21,7 @@ int stack_len(stack_t *head)
  * @cmd_line: commands line
  * Return: return nothing (void)
  */
-void swap(stack_t** topp, unsigned int cmd_line)
+void swap(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp, *top_next;
 	int i;
@@ -43,7 +43,7 @@ void swap(stack_t** topp, unsigned int cmd_line)
 /**
  * add - function adds the topmost two elemtents
  * @topp: pointer to address of top item
- * #cmd_line: commands line
+ * @cmd_line: commands line
  * Return: return nothing
  */
 void add(stack_t **topp, unsigned int cmd_line)
@@ -64,6 +64,12 @@ void add(stack_t **topp, unsigned int cmd_line)
 	(*topp) = temp;
 }
 
+/**
+ * sub - function subtracts the topmost two elemtents
+ * @topp: pointer to address of top item
+ * @cmd_line: commands line
+ * Return: return nothing
+ */
 void sub(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp;
@@ -82,6 +88,12 @@ void sub(stack_t **topp, unsigned int cmd_line)
 	(*topp) = temp;
 }
 
+/**
+ * divi - function divide the topmost two elemtents
+ * @topp: pointer to address of top item
+ * @cmd_line: commands line
+ * Return: return nothing
+ */
 void divi(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp;

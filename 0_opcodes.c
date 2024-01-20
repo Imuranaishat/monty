@@ -11,6 +11,7 @@
 void push(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *new_node;
+
 	if (sizeof(int) != 4)
 	{
 		dprintf(2, "L%d: usage: push integer", cmd_line);
@@ -95,7 +96,7 @@ void pop(stack_t **topp, unsigned int cmd_line)
 		exit(EXIT_FAILURE);
 	}
 	temp = (*topp);
-	(*topp) = temp->next;;
+	(*topp) = temp->next;
 	free(temp);
 }
 void nop(stack_t **topp, unsigned int cmd_line)
@@ -103,5 +104,5 @@ void nop(stack_t **topp, unsigned int cmd_line)
 	while ((*topp) || cmd_line)
 	{
 		break;
-	}	
+	}
 }
