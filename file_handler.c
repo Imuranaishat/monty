@@ -34,8 +34,10 @@ int open_file(char *file_name, stack_t **stack_head)
 			free(cmd);
 			exit(EXIT_FAILURE);
 		}
-
-		free(cmd);
+		else
+		{
+			free(cmd);
+		}
 	}
 
 	fclose(fd);

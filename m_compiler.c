@@ -2,7 +2,8 @@
 #include "opcodes.h"
 #include "strings.h"
 
-char *is_int(char *str);
+int is_int(char *str);
+int power(int num);
 /**
  * process_cmd - function processes command
  * by deasmond and aishat
@@ -20,14 +21,13 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 		{"pint", pint}, {"add", add}, {"mod", mode},
 		{"nop", nop}, {"sub", sub}};
 
-	if (cmds == NULL)
-		return (-2);
+
 	if (!cmds[1])
 		data_element = -1235321;
 	else
 	{
-		if (str_compare(is_int(cmds[1]), "no") == -1)
-			data_element = atoi(cmds[1]);
+		if (is_int(cmds[1]) != -1235321)
+			data_element = is_int(cmds[1]);
 		else
 		{
 			dprintf(2, "L%d:usage: push integer\n", line_num);
@@ -55,20 +55,54 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
  * @str: sting input
  * Return: return string to confirm
  */
-char *is_int(char *str)
+int is_int(char *str)
 {
 	int num, i = 0;
+	int len, real_num = 0;
+	int number = 0;
 
+	len = get_len(str);
+	if (str[0] == 45)
+	{
+		i++;
+		len--;
+	}
 	while (str[i])
 	{
-		num = str[i] - 0;
-		if (num >= 48 && num <= 57)
+		if (str[i] >= 48 && str[i] <= 57)
 		{
+			num = str[i] - 48;
+			if (power(len - 1) != 0)
+				number = num * power(len - 1);
+			else
+				number = num + power(len - 1);
+			len--;
+			real_num += number;
 			i++;
-			continue;
 		}
 		else
-			return ("no");
+			return (-1235321);
 	}
-	return ("yes");
+	if (str[0] == 45)
+		real_num = 0 - real_num;
+	return (real_num);
+}
+
+/**
+ * power - function rais 10 to a power
+ * @num: number
+ * Return: return power of 10 to num
+ */
+int power(int num)
+{
+	int i = 1;
+
+	if (num == 0)
+		return (0);
+	while (num > 0)
+	{
+		i *= 10;
+		num--;
+	}
+	return (i);
 }
