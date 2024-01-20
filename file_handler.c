@@ -25,7 +25,7 @@ int open_file(char *file_name, stack_t **stack_head)
 	while (getline(&line, &n, fd) > 0)
 	{
 		line_count++;
-		cmd = split_line(line);
+	cmd = split_line(line);
 		if (process_cmd(cmd, stack_head, line_count) == -1)
 		{
 			free(line);

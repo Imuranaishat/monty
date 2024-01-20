@@ -25,6 +25,5 @@ int main(int argc, char **argv)
 		free(stack);
 		stack = temp;
 	}
-		
 	return (0);
 }
