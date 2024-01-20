@@ -12,9 +12,9 @@ void push(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *new_node;
 
-	if (sizeof(int) != 4)
+	if (data_element  == -1235321)
 	{
-		dprintf(2, "L%d: usage: push integer", cmd_line);
+		dprintf(2, "L%d: usage: push integer\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
