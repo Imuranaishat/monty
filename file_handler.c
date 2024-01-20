@@ -14,6 +14,7 @@ int open_file(char *file_name, stack_t **stack_head)
 	char **cmd;
 	unsigned int line_count = 0;
 
+
 	fd = fopen(file_name, "r");
 	if (!fd)
 	{
@@ -28,10 +29,14 @@ int open_file(char *file_name, stack_t **stack_head)
 		if (process_cmd(cmd, stack_head, line_count) == -1)
 		{
 			free(line);
+			free(cmd);
 			exit(EXIT_FAILURE);
 		}
+
+		free(cmd);
 	}
+
 	fclose(fd);
-	free(line);
+
 	exit(EXIT_SUCCESS);
 }

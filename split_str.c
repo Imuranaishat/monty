@@ -13,6 +13,8 @@ char **split_line(char *string)
 	int i = 0;
 	char *dup = str_dup(string);
 
+	if (string == NULL)
+		return (NULL);
 	tok = strtok(dup, " $\n\t");
 	while (tok)
 	{

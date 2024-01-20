@@ -20,6 +20,8 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 		{"pint", pint}, {"add", add}, {"mod", mode},
 		{"nop", nop}, {"sub", sub}};
 
+	if (cmds == NULL)
+		return (-2);
 	if (!cmds[1])
 		data_element = -1235321;
 	else

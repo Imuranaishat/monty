@@ -8,7 +8,7 @@
  */
 int main(int argc, char **argv)
 {
-	stack_t *stack = NULL;
+	stack_t *temp,  *stack = NULL;
 
 	if (argc < 2 || argc > 2)
 	{
@@ -19,5 +19,12 @@ int main(int argc, char **argv)
 	{
 		open_file(argv[1], &stack);
 	}
+	while (stack != NULL)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
+	}
+		
 	return (0);
 }
