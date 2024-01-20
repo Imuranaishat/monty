@@ -83,7 +83,7 @@ void pint(stack_t **topp, unsigned int cmd_line)
 
 /**
  * pop - function removes tha last node from stack
- * @topp: tointer to address of topmost element in stack
+ * @topp: pointer to address of topmost element in stack
  * @cmd_line: commands line
  */
 void pop(stack_t **topp, unsigned int cmd_line)
@@ -99,6 +99,12 @@ void pop(stack_t **topp, unsigned int cmd_line)
 	(*topp) = temp->next;
 	free(temp);
 }
+
+/**
+ * nop - function removes tha last node from stack
+ * @topp: pointer to address of topmost element in stack
+ * @cmd_line: commands line
+ */
 void nop(stack_t **topp, unsigned int cmd_line)
 {
 	while ((*topp) || cmd_line)
