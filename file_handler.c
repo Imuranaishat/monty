@@ -22,10 +22,12 @@ int open_file(char *file_name, stack_t **stack_head)
 		exit(EXIT_FAILURE);
 	}
 
-	while (getline(&line, &n, fd) > 0)
+	while (getline(&line, &n, fd) >= 0)
 	{
 		line_count++;
-	cmd = split_line(line);
+		cmd = split_line(line);
+		if (cmd[0] == NULL || cmd[0][0] == '#')
+			continue;
 		if (process_cmd(cmd, stack_head, line_count) == -1)
 		{
 			free(line);
