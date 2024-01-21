@@ -15,11 +15,13 @@ void push(stack_t **topp, unsigned int cmd_line)
 	if (data_element  == -1235321)
 	{
 		dprintf(2, "L%d: usage: push integer\n", cmd_line);
+		free(command);
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
+		free(command);
 		dprintf(2, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
@@ -75,7 +77,7 @@ void pint(stack_t **topp, unsigned int cmd_line)
 
 	if ((*topp) == NULL)
 	{
-		dprintf(2, "L%d: cant't pint, stack empty\n", cmd_line);
+		dprintf(2, "L%d: can't pint, stack empty\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", temp->n);

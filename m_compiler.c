@@ -34,7 +34,7 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 			return (-1);
 		}
 	}
-
+	command = cmds;
 	len = (sizeof(opcodes) / sizeof(opcodes[0]));
 	while (i < len)
 	{

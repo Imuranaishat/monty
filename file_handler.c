@@ -30,7 +30,6 @@ int open_file(char *file_name, stack_t **stack_head)
 			continue;
 		if (process_cmd(cmd, stack_head, line_count) == -1)
 		{
-			free(line);
 			free(cmd);
 			exit(EXIT_FAILURE);
 		}

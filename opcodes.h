@@ -4,6 +4,7 @@
 #include "monty.h"
 
 int data_element;
+char **command;
 int stack_len(stack_t *head);
 void push(stack_t **topp, unsigned int cmd_line);
 void pall(stack_t **topp, unsigned int cmd_line);
