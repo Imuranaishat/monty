@@ -101,7 +101,7 @@ void divi(stack_t **topp, unsigned int cmd_line)
 
 	if (stack_len((*topp)) < 2)
 	{
-		dprintf(2, "L%d: can't div stack too short\n", cmd_line);
+		dprintf(2, "L%d: can't div, stack too short\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
 	if ((*topp)->n == 0)
