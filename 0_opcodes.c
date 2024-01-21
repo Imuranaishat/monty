@@ -16,6 +16,7 @@ void push(stack_t **topp, unsigned int cmd_line)
 	{
 		dprintf(2, "L%d: usage: push integer\n", cmd_line);
 		free(command);
+		free_stack((*topp));
 		exit(EXIT_FAILURE);
 	}
 	new_node = malloc(sizeof(stack_t));
@@ -48,21 +49,13 @@ void pall(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp = (*topp);
 
-	if (data_element != -1235321)
-	{
-		dprintf(2, "L%d: require no args \n", cmd_line);
-		exit(EXIT_FAILURE);
-	}
-	if (sizeof(data_element) != 4)
-	{
-		dprintf(2, "L%d: usage: pall\n", cmd_line);
-		exit(EXIT_FAILURE);
-	}
+
 	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+	free_stack((*topp));
 }
 
 /**
@@ -79,9 +72,10 @@ void pint(stack_t **topp, unsigned int cmd_line)
 	{
 		dprintf(2, "L%d: can't pint, stack empty\n", cmd_line);
 		exit(EXIT_FAILURE);
+		free(command);
 	}
-
 	printf("%d\n", temp->n);
+	free_stack((*topp));
 }
 
 /**
@@ -96,11 +90,13 @@ void pop(stack_t **topp, unsigned int cmd_line)
 	if ((*topp) == NULL)
 	{
 		dprintf(2, "L%d: can't pop an empty stack\n", cmd_line);
+		free(command);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*topp)->next;
 	free(*topp);
 	(*topp) = temp;
+	free_stack((*topp));
 }
 
 /**
@@ -110,8 +106,6 @@ void pop(stack_t **topp, unsigned int cmd_line)
  */
 void nop(stack_t **topp, unsigned int cmd_line)
 {
-	while ((*topp) || cmd_line)
-	{
-		break;
-	}
+	if ((*topp) && cmd_line)
+		free_stack((*topp));
 }

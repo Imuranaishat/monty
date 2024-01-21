@@ -6,6 +6,7 @@
 int data_element;
 char **command;
 int stack_len(stack_t *head);
+void free_stack(stack_t *top);
 void push(stack_t **topp, unsigned int cmd_line);
 void pall(stack_t **topp, unsigned int cmd_line);
 void pint(stack_t **topp, unsigned int cmd_line);
@@ -17,4 +18,7 @@ void sub(stack_t **topp, unsigned int cmd_line);
 void divi(stack_t **topp, unsigned int cmd_line);
 void mull(stack_t **topp, unsigned int cmd_line);
 void mode(stack_t **topp, unsigned int cmd_line);
+void pchar(stack_t **topp, unsigned int cmd_line);
+void pstr(stack_t **topp, unsigned int cmd_line);
+void rotr(stack_t **topp, unsigned int cmd_line);
 #endif

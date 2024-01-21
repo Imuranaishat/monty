@@ -16,10 +16,10 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 {
 	int len, i = 0;
 	instruction_t opcodes[] = {
-		{"push", push}, {"pop", pop}, {"div", divi},
-		{"pall", pall}, {"swap", swap}, {"mul", mull},
+		{"push", push}, {"pop", pop}, {"div", divi}, {"pstr", pstr},
+		{"pall", pall}, {"swap", swap}, {"mul", mull}, {"rotr", rotr},
 		{"pint", pint}, {"add", add}, {"mod", mode},
-		{"nop", nop}, {"sub", sub}};
+		{"nop", nop}, {"sub", sub}, {"pchar", pchar}};
 
 
 	if (!cmds[1])
@@ -28,11 +28,6 @@ int process_cmd(char **cmds, stack_t **top, unsigned int line_num)
 	{
 		if (is_int(cmds[1]) != -1235321)
 			data_element = is_int(cmds[1]);
-		else
-		{
-			dprintf(2, "L%d:usage: push integer\n", line_num);
-			return (-1);
-		}
 	}
 	command = cmds;
 	len = (sizeof(opcodes) / sizeof(opcodes[0]));
