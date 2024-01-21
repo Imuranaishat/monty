@@ -49,7 +49,7 @@ void pall(stack_t **topp, unsigned int cmd_line)
 {
 	stack_t *temp = (*topp);
 
-
+	cmd_line += 1;
 	while (temp)
 	{
 		printf("%d\n", temp->n);
