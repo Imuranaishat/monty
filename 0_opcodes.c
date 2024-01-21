@@ -80,6 +80,7 @@ void pint(stack_t **topp, unsigned int cmd_line)
 		dprintf(2, "L%d: can't pint, stack empty\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
+
 	printf("%d\n", temp->n);
 }
 
@@ -94,12 +95,12 @@ void pop(stack_t **topp, unsigned int cmd_line)
 
 	if ((*topp) == NULL)
 	{
-		dprintf(2, "L%d: cant pop an empty stack\n", cmd_line);
+		dprintf(2, "L%d: can't pop an empty stack\n", cmd_line);
 		exit(EXIT_FAILURE);
 	}
-	temp = (*topp);
-	(*topp) = temp->next;
-	free(temp);
+	temp = (*topp)->next;
+	free(*topp);
+	(*topp) = temp;
 }
 
 /**

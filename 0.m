@@ -1,7 +1,8 @@
 push 1
-
 push 2
-
 push 3
-pint
+pall
+swap
+pall
+pop
 pall
