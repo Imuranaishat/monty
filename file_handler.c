@@ -27,7 +27,10 @@ int open_file(char *file_name, stack_t **stack_head)
 		line_count++;
 		cmd = split_line(line);
 		if (cmd[0] == NULL || cmd[0][0] == '#')
+		{
+			free(cmd);
 			continue;
+		}
 		if (process_cmd(cmd, stack_head, line_count) == -1)
 		{
 			free(cmd);
